@@ -23,7 +23,6 @@ module.exports.addChild = async (req, res) => {
   const pool = getCon();
   const childName = req.body.childName;
   const email = req.email;
-  console.log(email);
   try {
     if (childName.length === 0) {
       throw new Error("Please enter a name");
@@ -46,7 +45,6 @@ module.exports.addChild = async (req, res) => {
     // });
     // console.log(user);
     // const accessToken = jwt.sign(user, process.env.HASHINGPASSWORD);
-    console.log("add child success");
     res.sendStatus(200); //.json({ accessToken });
   } catch (error) {
     console.log(error);
@@ -80,7 +78,6 @@ module.exports.returnAverageScoreByGameByChild = async (req, res) => {
   //console.log(req.session);
   const email = req.user.email;
   const childName = req.body.childName;
-  console.log(childName, "rannnn");
   const pool = getCon();
   await pool
     .query(
@@ -90,7 +87,6 @@ module.exports.returnAverageScoreByGameByChild = async (req, res) => {
       [email, childName]
     )
     .then((resp) => {
-      console.log(resp.rows);
       res.status(200).json({
         data: resp.rows,
       });

@@ -9,7 +9,6 @@ module.exports.submitGameScore = async (req, res) => {
 
   const pool = getCon();
   try {
-    console.log(moment().format())
     await pool
       .query(
         "INSERT INTO game_scores (game_name,game_score,email,child_name, date_attempt) VALUES ($1,$2,$3,$4,$5)",

@@ -112,20 +112,6 @@ module.exports.login = async (req, res) => {
             .then((resp) => {
               user.name = resp.rows[0].name;
             });
-          // await pool
-          //   .query(
-          //     "SELECT child_name FROM children WHERE email = $1 ORDER BY date_added",
-          //     [email]
-          //   )
-          //   .then((resp) => {
-          //     if (resp.rows.length > 0) {
-          //       resp.rows.forEach(row => {
-          //         user.children.push(row.child_name)
-          //       })
-          //     } else {
-          //       user.children = []
-          //     }
-          //   });
           user.token = jwt.sign(user, process.env.HASHINGPASSWORD);
           res.status(200).cookie("authorization", user.token).json({ user });
         } else {
