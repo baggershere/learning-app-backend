@@ -1,7 +1,8 @@
 const { getCon } = require("../DB/getcon");
-const moment = require('moment')
+const moment = require('moment');
 
 module.exports.submitGameScore = async (req, res) => {
+  console.log('ran')
   const childName = req.body.childName;
   const gameName = req.body.gameName;
   const gameScore = req.body.gameScore;
