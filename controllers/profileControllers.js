@@ -131,8 +131,8 @@ module.exports.fetchUserInfo = async (req, res) => {
     "SELECT child_name FROM children WHERE email=$1 ORDER BY date_added",
     [email]
   );
-  user.selectedChild = childrenResponse.length > 0 ? childrenResponse.rows[0].child_name : [];
-
+  user.selectedChild =
+    childrenResponse.rows.length > 0 ? childrenResponse.rows[0].child_name : "";
 
   res.json({ data: user });
 };

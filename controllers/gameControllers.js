@@ -1,12 +1,12 @@
 const { getCon } = require("../DB/getcon");
-const moment = require('moment');
 
 module.exports.submitGameScore = async (req, res) => {
   const childName = req.body.childName;
   const gameName = req.body.gameName;
   const gameScore = req.body.gameScore;
   const email = req.body.email;
-  const time = req.body.time
+  const time = req.body.time;
+  console.log(childName, gameName, gameScore, email, time);
 
   const pool = getCon();
   try {
