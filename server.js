@@ -35,7 +35,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.get("/testroute", (req, res) => {
+app.post("/testroute", (req, res) => {
   res.send("test route");
 });
 
