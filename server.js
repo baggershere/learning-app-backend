@@ -39,6 +39,10 @@ app.use(authRoutes);
 app.use(isAuth, gameRoutes);
 app.use(isAuth, profileRoutes);
 
+app.get("/testroute", (req, res) => {
+  res.send("test route");
+});
+
 app.listen(process.env.PORT, () =>
   console.log(`Running on port ${process.env.PORT}`)
 );

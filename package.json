@@ -6,7 +6,8 @@
   "scripts": {
     "run-api": "nodemon server.js",
     "seeder": "node seeder.js",
-    "test-api": "mocha test/one.test.js"
+    "test-api": "mocha test/one.test.js",
+    "start":"node server.js"
   },
   "keywords": [],
   "author": "",
