@@ -30,18 +30,18 @@ app.use(express.json());
 const corsOptions = {
   exposedHeaders: "authorization",
   credentials: true,
-  origin: "http://localhost:3000",
+  //origin: "http://localhost:3000",
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
 };
 app.use(cors(corsOptions));
 
-app.use(authRoutes);
-app.use(isAuth, gameRoutes);
-app.use(isAuth, profileRoutes);
-
 app.get("/testroute", (req, res) => {
   res.send("test route");
 });
+
+app.use(authRoutes);
+app.use(isAuth, gameRoutes);
+app.use(isAuth, profileRoutes);
 
 app.listen(process.env.PORT, () =>
   console.log(`Running on port ${process.env.PORT}`)
