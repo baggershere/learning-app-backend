@@ -30,7 +30,7 @@ app.use(express.json());
 const corsOptions = {
   exposedHeaders: "authorization",
   credentials: true,
-  origin: "http://localhost:3000",
+  origin: "https://create-react-app-games.herokuapp.com/",
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
 };
 app.use(cors(corsOptions));
