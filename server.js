@@ -33,7 +33,6 @@ const corsOptions = {
   //origin: "https://create-react-app-games.herokuapp.com/",
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
 };
-app.use(cors(corsOptions));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -42,6 +41,7 @@ app.use(function (req, res, next) {
   );
   next();
 });
+app.use(cors(corsOptions));
 
 app.get("/testroute", (req, res) => {
   res.send("test route");
