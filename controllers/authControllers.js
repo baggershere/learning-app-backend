@@ -33,7 +33,7 @@ const singupErrorHandler = (error) => {
 };
 
 module.exports.signup = async (req, res) => {
-  console.log("signup route")
+  console.log("signup route");
   const email = req.body.email;
   const name = req.body.name;
   const password = req.body.password;
@@ -96,7 +96,7 @@ const getFirstChild = async (email, req) => {
 };
 
 module.exports.login = async (req, res) => {
-  console.log("login route")
+  console.log("login route");
   const email = req.body.email;
   const password = req.body.password;
   const pool = getCon();
@@ -114,7 +114,7 @@ module.exports.login = async (req, res) => {
             .then((resp) => {
               user.name = resp.rows[0].name;
             });
-          user.token = jwt.sign(user, process.env.HASHINGPASSWORD);
+          user.token = jwt.sign(user, "" + process.env.HASHINGPASSWORD);
           res.status(200).cookie("authorization", user.token).json({ user });
         } else {
           res.status(400).json({ message: "Wrong password" });
@@ -137,10 +137,10 @@ module.exports.logout = async (req, res) => {
 };
 
 module.exports.sessionStatus = async (req, res) => {
-  console.log("sessionStatus route")
+  console.log("sessionStatus route");
   const header = req.cookies.authorization;
 
-  const token = header;  //header && header.split(" ")[1];
+  const token = header; //header && header.split(" ")[1];
   if (token === null) return res.sendStatus(400);
 
   jwt.verify(token, process.env.HASHINGPASSWORD, (err, user) => {
