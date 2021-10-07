@@ -34,6 +34,14 @@ const corsOptions = {
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
 };
 app.use(cors());
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 app.post("/testroute", (req, res) => {
   res.send("test route");
