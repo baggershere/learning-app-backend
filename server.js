@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.json());
 const corsOptions = {
   credentials: true,
-  origin: "https://create-react-app-games.herokuapp.com/",
+  origin: true,
 };
 
 app.use(cors(corsOptions));
