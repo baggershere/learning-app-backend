@@ -10,29 +10,26 @@ const mongoose = require("mongoose");
 const MongoDBSession = require("connect-mongodb-session")(session);
 const mongoURI = `mongodb+srv://baggers:bubblebath9@matt-project.zbj1q.mongodb.net/english-session?retryWrites=true&w=majority`;
 const { isAuth } = require("./middlewear/authMiddlewear");
-// mongoose
-//   .connect(mongoURI, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then((res) => console.log("connected"));
-
-// const store = new MongoDBSession({
-//   uri: mongoURI,
-//   collection: "session",
-// });
 
 const app = express();
 app.use(cookieParser());
 
 app.use(express.json());
-const corsOptions = {
-  credentials: true,
-  origin: true,
-};
+// const corsOptions = {
+//   credentials: true,
+//   origin: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(
+  require("cors")({
+    origin: function (origin, callback) {
+      callback(null, origin);
+    },
+    credentials: true,
+  })
+);
 
 app.get("/testroute", (req, res) => {
   res.send("test route");
