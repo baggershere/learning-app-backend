@@ -43,7 +43,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post("/testroute", (req, res) => {
+app.get("/testroute", (req, res) => {
   res.send("test route");
 });
 
