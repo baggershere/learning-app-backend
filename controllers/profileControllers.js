@@ -20,6 +20,8 @@ const errorHandler = (error) => {
 };
 
 module.exports.addChild = async (req, res) => {
+  console.log("addchild route");
+  console.log(req);
   const pool = getCon();
   const childName = req.body.childName;
   const email = req.email;
@@ -53,6 +55,8 @@ module.exports.addChild = async (req, res) => {
 };
 
 module.exports.removeChild = async (req, res) => {
+  console.log("remove child route");
+  console.log(req);
   const pool = getCon();
   const childName = req.body.childName;
   const email = req.email;
@@ -138,6 +142,8 @@ module.exports.fetchUserInfo = async (req, res) => {
 };
 
 module.exports.fetchProfileInfo = async (req, res) => {
+  console.log("profile info route");
+  console.log(req);
   const pool = getCon();
   const email = req.email;
   try {
