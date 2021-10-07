@@ -42,6 +42,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(cors(corsOptions));
+app.options("*", cors());
 
 app.get("/testroute", (req, res) => {
   res.send("test route");
