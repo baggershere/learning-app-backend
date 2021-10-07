@@ -33,7 +33,7 @@ const corsOptions = {
   origin: "https://create-react-app-games.herokuapp.com/",
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.post("/testroute", (req, res) => {
   res.send("test route");
