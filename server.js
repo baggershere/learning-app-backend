@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 app.use(express.json());
 const corsOptions = {
-  credentials: true,
+  credentials: "include",
   origin: true,
   //origin: "https://create-react-app-games.herokuapp.com/",
 };
