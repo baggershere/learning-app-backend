@@ -33,6 +33,7 @@ const singupErrorHandler = (error) => {
 };
 
 module.exports.signup = async (req, res) => {
+  console.log("signup route")
   const email = req.body.email;
   const name = req.body.name;
   const password = req.body.password;
@@ -95,6 +96,7 @@ const getFirstChild = async (email, req) => {
 };
 
 module.exports.login = async (req, res) => {
+  console.log("login route")
   const email = req.body.email;
   const password = req.body.password;
   const pool = getCon();
@@ -135,6 +137,7 @@ module.exports.logout = async (req, res) => {
 };
 
 module.exports.sessionStatus = async (req, res) => {
+  console.log("sessionStatus route")
   const header = req.cookies.authorization;
 
   const token = header;  //header && header.split(" ")[1];

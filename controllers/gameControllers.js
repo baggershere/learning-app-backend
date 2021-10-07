@@ -1,6 +1,7 @@
 const { getCon } = require("../DB/getcon");
 
 module.exports.submitGameScore = async (req, res) => {
+  console.log("gamescore route")
   const childName = req.body.childName;
   const gameName = req.body.gameName;
   const gameScore = req.body.gameScore;
