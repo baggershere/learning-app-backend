@@ -10,6 +10,7 @@ const isAuth = (req, res, next) => {
     if (err) return res.sendStatus(400);
     req.name = user.name;
     req.email = user.email;
+    console.log(req.email);
     next();
   });
 };
