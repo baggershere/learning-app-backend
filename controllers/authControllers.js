@@ -115,7 +115,13 @@ module.exports.login = async (req, res) => {
               user.name = resp.rows[0].name;
             });
           user.token = jwt.sign(user, "" + process.env.HASHINGPASSWORD);
-          res.status(200).cookie("authorization", user.token).json({ user });
+          res
+            .status(200)
+            .cookie("authorization", user.token, {
+              httpOnly: false,
+              domain: "https://create-react-app-games.herokuapp.com/",
+            })
+            .json({ user });
         } else {
           res.status(400).json({ message: "Wrong password" });
         }

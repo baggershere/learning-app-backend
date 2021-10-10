@@ -15,21 +15,12 @@ const app = express();
 app.use(cookieParser());
 
 app.use(express.json());
-// const corsOptions = {
-//   credentials: true,
-//   origin: true,
-// };
+const corsOptions = {
+  origin: true,
+  credentials: true,
+};
 
-// app.use(cors(corsOptions));
-
-app.use(
-  require("cors")({
-    origin: function (origin, callback) {
-      callback(null, origin);
-    },
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 
 app.get("/testroute", (req, res) => {
   res.send("test route");
