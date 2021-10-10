@@ -4,6 +4,7 @@ const saltRounds = 10;
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 const jwt = require("jsonwebtoken");
+const { NONAME } = require("dns");
 
 const singupErrorHandler = (error) => {
   let errors = {
@@ -118,7 +119,8 @@ module.exports.login = async (req, res) => {
           res
             .status(200)
             .cookie("authorization", user.token, {
-              httpOnly: false,
+              sameSite: "None",
+              secure: true,
               domain: "https://create-react-app-games.herokuapp.com/",
             })
             .json({ user });
