@@ -119,7 +119,7 @@ module.exports.login = async (req, res) => {
           res
             .status(200)
             .cookie("authorization", user.token, {
-              sameSite: "None",
+              sameSite: false,
               secure: true,
               domain: "https://create-react-app-games.herokuapp.com/",
             })
