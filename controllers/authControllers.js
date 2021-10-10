@@ -119,9 +119,8 @@ module.exports.login = async (req, res) => {
           res
             .status(200)
             .cookie("authorization", user.token, {
-              sameSite: false,
+              sameSite: "None",
               secure: true,
-              domain: "https://create-react-app-games.herokuapp.com/",
             })
             .json({ user });
         } else {
