@@ -21,7 +21,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
+app.enable("trust proxy");
 app.get("/testroute", (req, res) => {
   res.send("test route");
 });
