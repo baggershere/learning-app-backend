@@ -122,7 +122,7 @@ module.exports.login = async (req, res) => {
               sameSite: "none",
               secure: true,
             })
-            .json({ user });
+            .json({ user, token: user.token });
         } else {
           res.status(400).json({ message: "Wrong password" });
         }

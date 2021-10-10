@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const isAuth = (req, res, next) => {
-  console.log("auth route")
+  console.log("auth route -- " + req.cookies);
   const header = req.cookies.authorization;
   const token = header; //&& header.split(" ")[1];
   if (token === null) return res.sendStatus(400);
