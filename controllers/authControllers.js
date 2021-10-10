@@ -119,7 +119,7 @@ module.exports.login = async (req, res) => {
           res
             .status(200)
             .cookie("authorization", user.token, {
-              sameSite: "None",
+              sameSite: "none",
               secure: true,
             })
             .json({ user });
